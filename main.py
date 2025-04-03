@@ -19,7 +19,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))  # Use constants from constants.py
     pygame.display.set_caption("Asteroids") # Set the window title  to "Asteroids"
     clock = pygame.time.Clock() 
-    dt = 0  # Set the frame rate to 0 FPS
+    dt = 0  # Initialize the time delta between frames
     
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)  # Create a player object at the center of the screen
