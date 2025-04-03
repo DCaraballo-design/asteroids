@@ -10,6 +10,7 @@ from pygame.locals import *  # Import all constants from pygame.locals
 from constants import *  # Import all constants from constants
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 
 def main():
     pygame.init()  # Initialize the pygame library
@@ -21,10 +22,12 @@ def main():
     updateables = pygame.sprite.Group()  # Create a group for updateable objects
     drawables = pygame.sprite.Group()  # Create a group for drawable objects
     asteroids = pygame.sprite.Group()  # Create a group for all asteroids
+    shots = pygame.sprite.Group()  # Create a group for all shots
 
-    # Set the containers for the Player class
-    Player.containers = (updateables, drawables)  # Set the containers for the Player class
+    Player.containers = (updateables, drawables)  # Set the containers for the Player class 
+
     Asteroid.containers = (asteroids, updateables, drawables)
+    Shot.containers = (shots, updateables, drawables)  # Set the containers for the Shot class
     AsteroidField.containers = updateables
     asteroid_field = AsteroidField()
 
