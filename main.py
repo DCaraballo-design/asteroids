@@ -48,6 +48,13 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        for shot in shots:
+            for asteroid in asteroids:
+                if shot.collides_with(asteroid):
+                    shot.kill()
+                    asteroid.split()
+                
+
         pygame.Surface.fill(screen, (0, 0, 0), rect=None)  # Fill the screen with black
         for obj in drawables:
             obj.draw(screen)  # Draw the player on the screen
