@@ -24,7 +24,6 @@ def main():
 
     # Set the containers for the Player class
     Player.containers = (updateables, drawables)  # Set the containers for the Player class
-    # Set the containers for the Asteroid class
     Asteroid.containers = (asteroids, updateables, drawables)
     AsteroidField.containers = updateables
     asteroid_field = AsteroidField()
@@ -40,6 +39,11 @@ def main():
         
         # Update the game state and draw the screen here
         updateables.update(dt)  # Update the player state
+
+        for asteroid in asteroids:
+            if asteroid.collides_with(player):
+                print("Game over!")
+                sys.exit()
 
         pygame.Surface.fill(screen, (0, 0, 0), rect=None)  # Fill the screen with black
         for obj in drawables:
